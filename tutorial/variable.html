@@ -1,0 +1,43 @@
+<!Doctype html>
+<html>
+
+<body>
+    <script>
+        'use strict';
+        function local_func() {
+            var message = 'overwrite global';
+            alert(message);
+        }
+        function global_func() {
+            message = 'overwrites other global';
+        }
+        function error_func() {
+            // defining a variable without using let or var results in an error
+            mEsSaGe = 'uah thats an error';
+        }
+        // apparently this is a global variables
+        var message = 'message';
+        local_func();
+        // at this point the local variable 'message'
+        // from function `local_func` is out of scope
+        alert(message);
+        global_func();
+        // here the message has been overwritten
+        alert(message);
+        // global variables are defined with let
+        // and assigned with =
+        let global_message = 'mmmmmeeeessage';
+        error_func();
+    </script>
+    <! at this point the js global variables are still in scope>
+        <script>
+            alert(global_message);
+        </script>
+        <script>
+            // js is case-sensitive
+            let apple = 1;
+            let APPPLE = 2;
+        </script>
+</body>
+
+</html>
